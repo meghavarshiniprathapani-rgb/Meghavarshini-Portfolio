@@ -48,9 +48,9 @@ export interface Project {
   description: string;
   highlights: string[];
   technologies: string[];
-  image: string;
-  githubUrl: string;
-  liveUrl: string;
+  image?: string;
+  githubUrl?: string;
+  liveUrl?: string;
   featured: boolean;
 }
 

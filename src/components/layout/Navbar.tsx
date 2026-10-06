@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Radio } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { profileData } from '../../data/content';
 
 const NAV_ITEMS = [
@@ -71,15 +71,9 @@ export const Navbar: React.FC = () => {
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-bold font-mono text-sm shadow-md group-hover:scale-105 transition-transform">
             SM
           </div>
-          <div className="flex flex-col">
-            <span className="font-heading font-bold text-base sm:text-lg text-slate-900 group-hover:text-amber-600 transition-colors">
-              {profileData.shortName}
-            </span>
-            <span className="font-mono text-[10px] text-amber-600 tracking-wider flex items-center gap-1">
-              <Radio className="w-2.5 h-2.5 animate-pulse text-red-600 dark:text-red-500" />
-              {profileData.broadcastFrequency}
-            </span>
-          </div>
+          <span className="font-heading font-bold text-base sm:text-lg text-slate-900 group-hover:text-amber-600 transition-colors">
+            {profileData.shortName}
+          </span>
         </a>
 
         {/* Desktop Navigation Links */}

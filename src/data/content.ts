@@ -1,6 +1,4 @@
 import type { Profile, AboutSection, SkillCategory, Experience, Project, Certification, ContactDetails } from '../types';
-import klRadioPreview from '../assets/projects/kl-radio-placeholder.svg';
-import govConnectPreview from '../assets/projects/gov-connect-placeholder.svg';
 
 export const profileData: Profile = {
   name: "Satya Meghavarshini Prathapani",
@@ -143,7 +141,7 @@ export const projectsData: Project[] = [
       "Uses authentication and role-based access control, and is deployed in production."
     ],
     technologies: ["React", "Python", "WebRTC", "PostgreSQL", "REST APIs", "RBAC"],
-    image: klRadioPreview,
+    image: "https://ik.imagekit.io/z5fowzj2wr/Screenshot%202026-10-06%20185334.png",
     githubUrl: "https://github.com/meghavarshiniprathapani-rgb/klradio-main",
     liveUrl: "https://www.klradio.in/",
     featured: true
@@ -158,10 +156,56 @@ export const projectsData: Project[] = [
       "Created a responsive, reusable UI architecture with client-side routing and API integration.",
       "Structured application data for service discovery and user interactions; deployed on Vercel."
     ],
-    technologies: ["TypeScript", "React", "Vercel", "Git"],
-    image: govConnectPreview,
-    githubUrl: "#",
-    liveUrl: "#",
+    technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL"],
+    image: "https://ik.imagekit.io/z5fowzj2wr/gov-connect.jpeg",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/Gov-connect.git",
+    liveUrl: "https://gov-connect-bbbh.vercel.app/",
+    featured: true
+  },
+  {
+    id: "news-aggregator",
+    title: "News Aggregator",
+    tagline: "A cloud-native news platform built for secure, reliable content delivery.",
+    description: "News Aggregator is a full-stack application for managing and consuming news content through a React frontend and a secure Spring Boot REST API.",
+    highlights: [
+      "Built a React frontend integrated with Spring Boot REST APIs for streamlined news discovery and management.",
+      "Implemented Spring Security authentication and database-backed user management using layered service and repository architecture.",
+      "Containerized frontend and backend with Docker, then prepared Kubernetes manifests, Ingress routing, and Jenkins CI/CD workflows for repeatable delivery."
+    ],
+    technologies: ["React", "Spring Boot", "REST APIs", "Docker", "Kubernetes"],
+    image: "https://ik.imagekit.io/z5fowzj2wr/news%20aggregator.jpeg",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/news-Aggregartor.git",
+    liveUrl: "https://news-aggregartor-qccb.vercel.app/",
+    featured: true
+  },
+  {
+    id: "pulseboard-ai",
+    title: "PulseBoard AI",
+    tagline: "An AI-powered business analytics workspace for turning sales data into decisions.",
+    description: "PulseBoard AI is a business analytics platform that processes sales datasets to surface KPI-driven insights across revenue, customers, products, and regions.",
+    highlights: [
+      "Built a React, FastAPI, PostgreSQL, and Pandas workflow for analyzing sales datasets and generating business KPIs.",
+      "Implemented CSV validation, data cleaning, missing-value handling, database persistence, and REST APIs for reliable analytics processing.",
+      "Created an AI Data Copilot that turns natural-language questions into read-only SQL, tables, charts, and business summaries."
+    ],
+    technologies: ["React", "FastAPI", "PostgreSQL", "Pandas", "REST APIs", "AI Data Copilot"],
+    githubUrl: "https://github.com/Bhanutejanallamothu/Pulseboard.AI.git",
+    featured: true
+  },
+  {
+    id: "medisite",
+    title: "MediSite - Healthcare Management Platform",
+    tagline: "A responsive healthcare interface for disease information, doctor discovery, and patient support.",
+    description: "MediSite is a frontend healthcare platform that makes it easier for users to search disease information, discover doctors, request appointments, and manage patient-profile interactions.",
+    highlights: [
+      "Built disease search and filtering with dynamic detail pages covering symptoms, causes, treatments, and dietary recommendations.",
+      "Created doctor discovery and appointment-request interfaces with specialty, ratings, availability, distance, and contact details.",
+      "Implemented reusable responsive components, navigation, localStorage-based simulated authentication, and toast-notification feedback."
+    ],
+    technologies: ["React.js", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
+    image: "https://ik.imagekit.io/z5fowzj2wr/image.png",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/MediSite-3011.git",
+    liveUrl: "https://medi-site-3011.vercel.app/",
     featured: true
   }
 ];
