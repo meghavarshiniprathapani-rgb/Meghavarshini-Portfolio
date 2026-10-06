@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://meghavarshiniprathapani-rgb.github.io/Portfolio/sitemap.xml

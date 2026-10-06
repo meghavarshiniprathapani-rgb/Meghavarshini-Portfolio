@@ -1,0 +1,12 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#101827"/>
+  <rect x="42" y="42" width="1116" height="616" rx="18" fill="#172033" stroke="#334155" stroke-width="2"/>
+  <circle cx="86" cy="82" r="8" fill="#F59E0B"/><circle cx="112" cy="82" r="8" fill="#475569"/><circle cx="138" cy="82" r="8" fill="#475569"/>
+  <rect x="80" y="130" width="220" height="30" rx="8" fill="#26364D"/><rect x="80" y="188" width="164" height="18" rx="6" fill="#F59E0B" fill-opacity=".82"/>
+  <rect x="80" y="244" width="336" height="272" rx="16" fill="#0F172A" stroke="#334155"/>
+  <path d="M112 396C138 396 138 316 164 316C190 316 190 438 216 438C242 438 242 350 268 350C294 350 294 412 320 412C346 412 346 290 372 290" stroke="#F59E0B" stroke-width="10" stroke-linecap="round"/>
+  <rect x="452" y="188" width="650" height="70" rx="14" fill="#26364D"/><rect x="484" y="212" width="145" height="18" rx="6" fill="#E2E8F0"/><rect x="924" y="208" width="136" height="28" rx="14" fill="#F59E0B"/>
+  <rect x="452" y="286" width="650" height="230" rx="16" fill="#0F172A" stroke="#334155"/>
+  <rect x="484" y="320" width="240" height="18" rx="6" fill="#94A3B8"/><rect x="484" y="362" width="550" height="12" rx="6" fill="#334155"/><rect x="484" y="400" width="492" height="12" rx="6" fill="#334155"/><rect x="484" y="438" width="382" height="12" rx="6" fill="#334155"/>
+  <text x="80" y="600" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="28" font-weight="700">KL RADIO / LIVE STUDIO</text>
+</svg>

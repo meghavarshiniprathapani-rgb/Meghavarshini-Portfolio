@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#020617"/>
+  <circle cx="960" cy="130" r="310" fill="#F59E0B" fill-opacity=".16"/>
+  <circle cx="1030" cy="560" r="280" fill="#F59E0B" fill-opacity=".08"/>
+  <rect x="82" y="78" width="92" height="92" rx="18" fill="#F59E0B"/>
+  <text x="128" y="137" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">SM</text>
+  <text x="82" y="272" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="66" font-weight="700">Satya Meghavarshini</text>
+  <text x="82" y="346" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="66" font-weight="700">Prathapani</text>
+  <text x="82" y="425" fill="#F59E0B" font-family="Arial, sans-serif" font-size="32" font-weight="600">FULL-STACK DEVELOPER</text>
+  <text x="82" y="485" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="25">Real-time, production-ready web applications</text>
+</svg>
