@@ -1,51 +1,24 @@
 # Satya Meghavarshini Prathapani — Portfolio
 
-A responsive personal portfolio built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion.
+A Next.js 15 portfolio built from the supplied résumé and introduction video.
 
-## Prerequisites
-
-- Node.js 20 or later
-- npm 10 or later
-
-## Run locally
+## Run
 
 ```bash
-git clone https://github.com/<your-github-username>/<your-repository>.git
-cd <your-repository>
 npm install
-copy .env.example .env.local
 npm run dev
 ```
 
-Open the local URL printed by Vite (usually `http://localhost:5173`). On macOS/Linux, use `cp .env.example .env.local` instead.
+Create a production build with `npm run build`, then serve it with `npm start`.
 
-## Environment variables
+## Sections
 
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `VITE_FORMSPREE_ENDPOINT` | To enable the contact form | Your Formspree form endpoint, such as `https://formspree.io/f/xxxxabcd` |
+Hero, About, Skills, Work, Certifications, Experience, Achievements, and Contact. All displayed portfolio content is held in `src/lib/data.ts` and is sourced from the résumé.
 
-Only variables beginning with `VITE_` are available to this client-side Vite app. Do not place private keys, passwords, or server-only secrets in them.
+## Assets
 
-## Quality checks
+- `public/resume.pdf` is the résumé opened by each Résumé button.
+- `public/hero/hero.mp4` is the supplied introduction video used in the hero.
+- `scripts/build-hero-assets.py` documents a reusable FFmpeg pipeline for cropped MP4/WebM hero exports and still-image assets. It needs FFmpeg and NumPy installed locally. Supply crop coordinates after reviewing the source clip.
 
-```bash
-npm run lint
-npm run build
-npm run preview
-```
-
-The production output is generated in `dist/`.
-
-## Deploy to Vercel
-
-Vercel automatically detects Vite. When importing the repository, confirm these settings:
-
-- Framework Preset: `Vite`
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Install Command: `npm install`
-
-In Vercel, add `VITE_FORMSPREE_ENDPOINT` under **Project Settings → Environment Variables** for Production (and Preview if desired), then redeploy.
-
-See the deployment and custom-domain instructions in the project handoff message or Vercel's documentation.
+The build uses no third-party logo assets or image CDNs.

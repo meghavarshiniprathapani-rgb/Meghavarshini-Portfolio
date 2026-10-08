@@ -51,10 +51,10 @@ export const Skills: React.FC = () => {
                   {cat.skills.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 hover:bg-amber-500/10 dark:hover:bg-amber-500/15 transition-all duration-200 hover:-translate-y-0.5 cursor-default shadow-xs"
+                      className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-black hover:bg-slate-100 transition-all duration-200 hover:-translate-y-0.5 cursor-default shadow-xs"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80 group-hover:bg-amber-500 group-hover:scale-125 transition-all" />
-                      <span className="text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                      <span className="text-xs sm:text-sm font-medium text-black group-hover:text-amber-600 transition-colors">
                         {skill.name}
                       </span>
                     </div>

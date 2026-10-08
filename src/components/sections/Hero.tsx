@@ -137,7 +137,7 @@ export const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="p-3 rounded-xl glass-panel text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm"
               aria-label="LinkedIn Profile"
-              title="LinkedIn: linkedin.com/in/satya-meghavarshini"
+              title="LinkedIn: linkedin.com/in/prathapani-satya-meghavarshini"
             >
               <LinkedinIcon className="w-5 h-5" />
             </a>

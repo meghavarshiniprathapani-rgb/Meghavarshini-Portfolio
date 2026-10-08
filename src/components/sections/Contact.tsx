@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, CheckCircle2, Radio, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -25,7 +25,14 @@ export const Contact: React.FC = () => {
 
     const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
     if (!endpoint) {
-      setError('Contact form setup is incomplete. Please email me directly instead.');
+      const mailSubject = formState.subject || `Portfolio message from ${formState.name}`;
+      const mailBody = [
+        `Name: ${formState.name}`,
+        `Email: ${formState.email}`,
+        '',
+        formState.message,
+      ].join('\n');
+      window.location.href = `mailto:${contactData.email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
       return;
     }
 
@@ -134,15 +141,6 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-400 flex items-start gap-2.5">
-              <Radio className="w-4 h-4 text-amber-500 animate-pulse shrink-0 mt-0.5" />
-              <span>{contactData.availability}</span>
-            </div>
-
-            <div className="flex flex-wrap gap-3 mt-5">
-              <Button href={contactData.github} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" icon={<GithubIcon className="w-4 h-4" />}>GitHub</Button>
-              <Button href={contactData.linkedin} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" icon={<LinkedinIcon className="w-4 h-4" />}>LinkedIn</Button>
-            </div>
           </Card>
         </div>
 
@@ -152,7 +150,7 @@ export const Contact: React.FC = () => {
             <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-800/80">
               <MessageSquare className="w-5 h-5 text-amber-500" />
               <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-slate-100">
-                Send a Signal / Message
+                Send a Message
               </h3>
             </div>
 

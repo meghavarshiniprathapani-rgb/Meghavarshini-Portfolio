@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 .vercel
+.next
 .env
 .env.*
 !.env.example

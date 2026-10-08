@@ -2,7 +2,7 @@ import type { Profile, AboutSection, SkillCategory, Experience, Project, Certifi
 
 export const profileData: Profile = {
   name: "Satya Meghavarshini Prathapani",
-  shortName: "Satya M. Prathapani",
+  shortName: "Satya Meghavarshini",
   role: "Full-Stack Developer",
   tagline: "Full-stack developer building real-time, production-ready web apps",
   degree: "B.Tech in Computer Science and Engineering",
@@ -19,7 +19,7 @@ export const profileData: Profile = {
   statusDetails: "Available for Full-Stack Internships & Projects",
   resumeUrl: "/resume.pdf",
   githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
-  linkedinUrl: "https://linkedin.com/in/satya-meghavarshini",
+  linkedinUrl: "https://www.linkedin.com/in/prathapani-satya-meghavarshini/?isSelfProfile=true",
   email: "meghavarshiniprathapani@gmail.com"
 };
 
@@ -142,7 +142,7 @@ export const projectsData: Project[] = [
     ],
     technologies: ["React", "Python", "WebRTC", "PostgreSQL", "REST APIs", "RBAC"],
     image: "https://ik.imagekit.io/z5fowzj2wr/Screenshot%202026-10-06%20185334.png",
-    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/klradio-main",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     liveUrl: "https://www.klradio.in/",
     featured: true
   },
@@ -158,7 +158,7 @@ export const projectsData: Project[] = [
     ],
     technologies: ["Next.js", "Node.js", "Express.js", "PostgreSQL"],
     image: "https://ik.imagekit.io/z5fowzj2wr/gov-connect.jpeg",
-    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/Gov-connect.git",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     liveUrl: "https://gov-connect-bbbh.vercel.app/",
     featured: true
   },
@@ -174,22 +174,8 @@ export const projectsData: Project[] = [
     ],
     technologies: ["React", "Spring Boot", "REST APIs", "Docker", "Kubernetes"],
     image: "https://ik.imagekit.io/z5fowzj2wr/news%20aggregator.jpeg",
-    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/news-Aggregartor.git",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     liveUrl: "https://news-aggregartor-qccb.vercel.app/",
-    featured: true
-  },
-  {
-    id: "pulseboard-ai",
-    title: "PulseBoard AI",
-    tagline: "An AI-powered business analytics workspace for turning sales data into decisions.",
-    description: "PulseBoard AI is a business analytics platform that processes sales datasets to surface KPI-driven insights across revenue, customers, products, and regions.",
-    highlights: [
-      "Built a React, FastAPI, PostgreSQL, and Pandas workflow for analyzing sales datasets and generating business KPIs.",
-      "Implemented CSV validation, data cleaning, missing-value handling, database persistence, and REST APIs for reliable analytics processing.",
-      "Created an AI Data Copilot that turns natural-language questions into read-only SQL, tables, charts, and business summaries."
-    ],
-    technologies: ["React", "FastAPI", "PostgreSQL", "Pandas", "REST APIs", "AI Data Copilot"],
-    githubUrl: "https://github.com/Bhanutejanallamothu/Pulseboard.AI.git",
     featured: true
   },
   {
@@ -204,8 +190,22 @@ export const projectsData: Project[] = [
     ],
     technologies: ["React.js", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
     image: "https://ik.imagekit.io/z5fowzj2wr/image.png",
-    githubUrl: "https://github.com/meghavarshiniprathapani-rgb/MediSite-3011.git",
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     liveUrl: "https://medi-site-3011.vercel.app/",
+    featured: true
+  },
+  {
+    id: "pulseboard-ai",
+    title: "PulseBoard AI",
+    tagline: "An AI-powered business analytics workspace for turning sales data into decisions.",
+    description: "PulseBoard AI is a business analytics platform that processes sales datasets to surface KPI-driven insights across revenue, customers, products, and regions.",
+    highlights: [
+      "Built a React, FastAPI, PostgreSQL, and Pandas workflow for analyzing sales datasets and generating business KPIs.",
+      "Implemented CSV validation, data cleaning, missing-value handling, database persistence, and REST APIs for reliable analytics processing.",
+      "Created an AI Data Copilot that turns natural-language questions into read-only SQL, tables, charts, and business summaries."
+    ],
+    technologies: ["React", "FastAPI", "PostgreSQL", "Pandas", "REST APIs", "AI Data Copilot"],
+    githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     featured: true
   }
 ];
@@ -253,7 +253,7 @@ export const contactData: ContactDetails = {
   email: "meghavarshiniprathapani@gmail.com",
   phone: "+91 9392524940",
   github: "https://github.com/meghavarshiniprathapani-rgb",
-  linkedin: "https://linkedin.com/in/satya-meghavarshini",
+  linkedin: "https://www.linkedin.com/in/prathapani-satya-meghavarshini/?isSelfProfile=true",
   location: "India",
   availability: "Open for Full-Stack Development Internships (B.Tech CSE '27)",
   broadcastNote: "Have a project, internship opportunity, or idea to discuss? I’d be glad to hear from you."
