@@ -173,7 +173,7 @@ export const projectsData: Project[] = [
       "Containerized frontend and backend with Docker, then prepared Kubernetes manifests, Ingress routing, and Jenkins CI/CD workflows for repeatable delivery."
     ],
     technologies: ["React", "Spring Boot", "REST APIs", "Docker", "Kubernetes"],
-    image: "https://ik.imagekit.io/z5fowzj2wr/news%20aggregator.jpeg",
+    image: "https://ik.imagekit.io/z5fowzj2wr/news%20aggregator.jpeg?updatedAt=1791309011873",
     githubUrl: "https://github.com/meghavarshiniprathapani-rgb",
     liveUrl: "https://news-aggregartor-qccb.vercel.app/",
     featured: true

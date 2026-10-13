@@ -8,7 +8,7 @@ export const PROFILE = {
   github: 'https://github.com/meghavarshiniprathapani-rgb',
   linkedin: 'https://www.linkedin.com/in/prathapani-satya-meghavarshini/',
   resume: '/resume.pdf',
-  summary: 'Computer Science undergraduate graduating in 2027 with hands-on experience in backend development, REST APIs, SQL databases, containerization, Kubernetes deployments, and CI/CD workflows. Experienced in developing and testing backend services using Java and Spring Boot, integrating application components, troubleshooting technical issues, and deploying applications using Docker and Kubernetes. Strong foundation in Data Structures, Algorithms, OOP, DBMS, Operating Systems, problem solving, and software engineering practices.',
+  summary: 'Computer Science undergraduate graduating in 2027 with hands-on experience in Frontend development, REST APIs, SQL databases, containerization, Kubernetes deployments, and CI/CD workflows. Experienced in developing and testing backend services using Java and Spring Boot, integrating application components, troubleshooting technical issues, and deploying applications using Docker and Kubernetes. Strong foundation in Data Structures, Algorithms, OOP, DBMS, Operating Systems, problem solving, and software engineering practices.',
 } as const;
 
 export const NAV = [
@@ -28,12 +28,14 @@ export const SKILL_GROUPS = [
 export const PROJECTS = [
   {
     id: 'news', index: '01', title: 'News Aggregator', kicker: 'Full-stack news platform', github: 'https://github.com/meghavarshiniprathapani-rgb/news-Aggregartor',
+    image: 'https://ik.imagekit.io/z5fowzj2wr/news%20aggregator.jpeg?updatedAt=1791309011873',
     description: 'Developed a full-stack news aggregation platform with a Java Spring Boot backend, REST APIs, authentication, and frontend integration for managing and consuming news content.',
     features: ['Containerized backend and frontend services using Docker and Docker Compose.', 'Created Kubernetes deployment manifests and configured Ingress-based routing.', 'Implemented Spring Security, database-backed user management, and layered Spring architecture.', 'Configured Git and Jenkins-based CI/CD workflows.'],
     tech: ['Java', 'Spring Boot', 'REST APIs', 'Docker', 'Kubernetes', 'Jenkins'],
   },
   {
     id: 'radio', index: '02', title: 'KL Radio', kicker: 'Real-time broadcasting platform', live: 'https://klradio.in',
+    image: 'https://ik.imagekit.io/z5fowzj2wr/Screenshot%202026-10-06%20185334.png',
     description: 'Engineered an event-driven real-time communication system using Node.js and Express.js, supporting concurrent connections and developed a Python-WebRTC audio transfer engine achieving approximately 2–3 seconds of streaming latency.',
     features: ['Developed REST APIs and PostgreSQL-backed services for live shows, scripts, podcasts, and announcements.', 'Built real-time song suggestion workflows.', 'Implemented role-based access control and access validation.', 'Worked with broadcasting stakeholders on operational workflows and reliability.'],
     tech: ['Node.js', 'Express.js', 'Python', 'WebRTC', 'PostgreSQL', 'REST APIs'],

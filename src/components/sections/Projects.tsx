@@ -48,7 +48,7 @@ export const Projects: React.FC = () => {
                     alt={`${project.title} interface placeholder`}
                     loading="lazy"
                     decoding="async"
-                    className={`w-full transition-transform duration-500 group-hover:scale-[1.03] ${project.featured ? `h-64 lg:h-full object-contain bg-slate-100 ${project.id === 'news-aggregator' ? 'p-6' : 'p-2'}` : 'h-56 object-cover'}`}
+                    className={`w-full transition-transform duration-500 group-hover:scale-[0.96] ${project.featured ? `h-64 lg:h-full object-contain bg-slate-100 ${project.id === 'news-aggregator' ? 'p-6' : 'p-2'}` : 'h-56 object-cover'}`}
                   />
                 </div>
               )}

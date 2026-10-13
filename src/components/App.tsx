@@ -15,7 +15,8 @@ export default function App() {
   const [project, setProject] = useState(0);
   const [copied, setCopied] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
-  const [sound, setSound] = useState(false);
+  const isUserPaused = useRef(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setProgress((window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight)) * 100);
@@ -30,12 +31,34 @@ export default function App() {
   useEffect(() => { const close = (event: KeyboardEvent) => event.key === 'Escape' && setMenu(false); window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close); }, []);
   useEffect(() => {
     const hero = document.getElementById('hero'); if (!hero || !video.current) return;
-    const observer = new IntersectionObserver(([entry]) => { if (!video.current) return; entry.intersectionRatio >= .35 ? video.current.play().catch(() => {}) : video.current.pause(); }, { threshold: [.35] });
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!video.current) return;
+      if (entry.intersectionRatio >= .35) {
+        if (!isUserPaused.current) {
+          video.current.play().catch(() => {});
+          setIsPaused(false);
+        }
+      } else {
+        video.current.pause();
+      }
+    }, { threshold: [.35] });
     observer.observe(hero); return () => observer.disconnect();
   }, []);
   const filters = useMemo(() => ['All', ...SKILL_GROUPS.map(([name]) => name)], []);
   const scroll = (id: string) => { setMenu(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
-  const toggleSound = () => { if (!video.current) return; video.current.muted = sound; setSound(!sound); video.current.play().catch(() => {}); };
+  const togglePlay = () => {
+    if (!video.current) return;
+    if (!isPaused) {
+      video.current.pause();
+      setIsPaused(true);
+      isUserPaused.current = true;
+    } else {
+      video.current.currentTime = 0;
+      video.current.play().catch(() => {});
+      setIsPaused(false);
+      isUserPaused.current = false;
+    }
+  };
   const copy = async () => { await navigator.clipboard.writeText(PROFILE.email); setCopied(true); setTimeout(() => setCopied(false), 1800); };
 
   return <main>
@@ -50,7 +73,37 @@ export default function App() {
     <section id="hero" className="hero" aria-label="Introduction">
       <div className="ghost">{PROFILE.firstName}</div><p className="eyebrow">Portfolio / 2026</p>
       <div className="hero-copy rv"><h1>{PROFILE.role}<i>.</i></h1><p>Backend development, real-time systems, and reliable software delivery.</p><div className="actions"><button className="button dark" onClick={() => scroll('work')}>Explore work <span>↓</span></button><button className="button" onClick={() => scroll('contact')}>Let&apos;s talk</button><a className="text-link" href={PROFILE.resume} download>Résumé ↓</a></div></div>
-      <div className="video-wrap"><video ref={video} muted loop playsInline preload="auto" autoPlay aria-label="Video introduction of Satya Meghavarshini Prathapani"><source src="/hero/hero.mp4" type="video/mp4" /></video><button className="sound" onClick={toggleSound} aria-label={sound ? 'Mute introduction video' : 'Play introduction video sound'}>{sound ? 'Ⅱ' : '▶'}</button></div>
+      <div className="video-wrap">
+        <video
+          ref={video}
+          muted
+          loop
+          playsInline
+          preload="auto"
+          autoPlay
+          onPlay={() => setIsPaused(false)}
+          aria-label="Video introduction of Satya Meghavarshini Prathapani"
+        >
+          <source src="/hero/hero.mp4" type="video/mp4" />
+        </video>
+        <button
+          className="sound"
+          onClick={togglePlay}
+          aria-label={isPaused ? 'Play introduction video from first' : 'Pause introduction video'}
+          title={isPaused ? 'Play from first' : 'Pause video'}
+        >
+          {isPaused ? (
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="6 3 20 12 6 21 6 3" />
+            </svg>
+          ) : (
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="4" width="4" height="16" rx="1" />
+              <rect x="14" y="4" width="4" height="16" rx="1" />
+            </svg>
+          )}
+        </button>
+      </div>
       <p className="hero-note">Scroll to explore <span>↓</span></p>
     </section>
 
@@ -62,7 +115,7 @@ export default function App() {
 
     <section id="skills" className="section skills"><Tag n="02" label="Technical skills" /><h2 className="rv">The stack behind the <em>systems.</em></h2><div className="filters">{filters.map((item) => <button key={item} onClick={() => setFilter(item)} className={filter === item ? 'on' : ''}>{item}</button>)}</div><div className="skills-layout"><div className="element-grid">{skillItems.map((skill, i) => <button key={skill.name} onMouseEnter={() => setSelected(skill)} onFocus={() => setSelected(skill)} className={`element ${filter !== 'All' && filter !== skill.family ? 'dim' : ''}`} style={{ transitionDelay: `${(Math.floor(i / 8) + i % 8) * 35}ms` }}><small>{String(i + 1).padStart(2, '0')}</small><b>{skill.name.slice(0, 2)}</b><span>{skill.name}</span></button>)}</div><aside className="inspector"><small>STACK INSPECTOR</small><div className="inspector-mark">{selected.name.slice(0, 2)}</div><h3>{selected.name}</h3><p>{selected.family}</p><hr /><p>Included in the technical skills listed on the résumé.</p></aside></div></section>
 
-    <section id="work" className="section"><Tag n="03" label="Selected work" /><h2 className="rv">Things I&apos;ve <em>built.</em></h2><div className="work">{PROJECTS.map((item, index) => <article key={item.id} className={`project ${project === index ? 'open' : ''}`} onMouseEnter={() => setProject(index)}><button className="project-toggle" onClick={() => setProject(index)} aria-label={`Open ${item.title}`}><span>{item.index}</span><b>{item.title}</b><i>+</i></button><div className="project-content"><div><p className="eyebrow">{item.index} / {item.kicker}</p><h3>{item.title}</h3><p>{item.description}</p><ul>{item.features.slice(0, 2).map((x) => <li key={x}>{x}</li>)}</ul><div className="chips">{item.tech.map((x) => <span key={x}>{x}</span>)}</div>{'github' in item && <a className="button dark" href={item.github} target="_blank">View on GitHub ↗</a>}{'live' in item && <a className="button dark" href={item.live} target="_blank">Visit KL Radio ↗</a>}</div><div className="illustration"><small>ILLUSTRATIVE UI</small><div /><div /><div /></div></div></article>)}</div></section>
+    <section id="work" className="section"><Tag n="03" label="Selected work" /><h2 className="rv">Things I&apos;ve <em>built.</em></h2><div className="work">{PROJECTS.map((item, index) => <article key={item.id} className={`project ${project === index ? 'open' : ''}`} onMouseEnter={() => setProject(index)}><button className="project-toggle" onClick={() => setProject(index)} aria-label={`Open ${item.title}`}><span>{item.index}</span><b>{item.title}</b><i>+</i></button><div className="project-content"><div><p className="eyebrow">{item.index} / {item.kicker}</p><h3>{item.title}</h3><p>{item.description}</p><ul>{item.features.slice(0, 2).map((x) => <li key={x}>{x}</li>)}</ul><div className="chips">{item.tech.map((x) => <span key={x}>{x}</span>)}</div>{'github' in item && <a className="button dark" href={item.github} target="_blank">View on GitHub ↗</a>}{'live' in item && <a className="button dark" href={item.live} target="_blank">Visit KL Radio ↗</a>}</div><div className={`illustration ${'image' in item && item.image ? 'has-img' : ''}`}>{'image' in item && item.image ? <img src={item.image} alt={`${item.title} preview`} className="project-img" loading="lazy" /> : <><small>ILLUSTRATIVE UI</small><div /><div /><div /></>}</div></div></article>)}</div></section>
 
     <section id="certifications" className="section certs"><Tag n="04" label="Certifications" /><div className="cert-grid"><div><h2 className="rv">Always <em>learning.</em></h2><p>{CERTIFICATIONS.length} certifications</p></div><ol>{CERTIFICATIONS.map((cert, index) => <li className="rv" key={cert}><span>{String(index + 1).padStart(2, '0')}</span><b>{cert}</b><i>↗</i></li>)}</ol></div></section>
 
