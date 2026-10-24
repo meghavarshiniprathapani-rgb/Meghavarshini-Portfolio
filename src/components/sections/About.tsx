@@ -111,7 +111,7 @@ export const About: React.FC = () => {
                     KL Radio Host & Coordinator
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Coordinated 15+ live broadcasts for KL Radio, managing real-time audio feeds for 100+ concurrent listeners. Combined communication leadership with technical audio distribution.
+                    Coordinated 15+ live broadcasts for KL Radio, managing real-time audio feeds for 30+ concurrent listeners. Combined communication leadership with technical audio distribution.
                   </p>
                 </div>
               </div>

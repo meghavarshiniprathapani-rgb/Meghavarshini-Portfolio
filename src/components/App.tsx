@@ -12,7 +12,6 @@ export default function App() {
   const [menu, setMenu] = useState(false);
   const [filter, setFilter] = useState('All');
   const [selected, setSelected] = useState(skillItems[0]);
-  const [project, setProject] = useState(0);
   const [copied, setCopied] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
   const isUserPaused = useRef(false);
@@ -48,15 +47,14 @@ export default function App() {
   const scroll = (id: string) => { setMenu(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
   const togglePlay = () => {
     if (!video.current) return;
-    if (!isPaused) {
-      video.current.pause();
-      setIsPaused(true);
-      isUserPaused.current = true;
-    } else {
-      video.current.currentTime = 0;
+    if (video.current.paused) {
       video.current.play().catch(() => {});
       setIsPaused(false);
       isUserPaused.current = false;
+    } else {
+      video.current.pause();
+      setIsPaused(true);
+      isUserPaused.current = true;
     }
   };
   const copy = async () => { await navigator.clipboard.writeText(PROFILE.email); setCopied(true); setTimeout(() => setCopied(false), 1800); };
@@ -89,8 +87,8 @@ export default function App() {
         <button
           className="sound"
           onClick={togglePlay}
-          aria-label={isPaused ? 'Play introduction video from first' : 'Pause introduction video'}
-          title={isPaused ? 'Play from first' : 'Pause video'}
+          aria-label={isPaused ? 'Play introduction video' : 'Pause introduction video'}
+          title={isPaused ? 'Play video' : 'Pause video'}
         >
           {isPaused ? (
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -115,9 +113,9 @@ export default function App() {
 
     <section id="skills" className="section skills"><Tag n="02" label="Technical skills" /><h2 className="rv">The stack behind the <em>systems.</em></h2><div className="filters">{filters.map((item) => <button key={item} onClick={() => setFilter(item)} className={filter === item ? 'on' : ''}>{item}</button>)}</div><div className="skills-layout"><div className="element-grid">{skillItems.map((skill, i) => <button key={skill.name} onMouseEnter={() => setSelected(skill)} onFocus={() => setSelected(skill)} className={`element ${filter !== 'All' && filter !== skill.family ? 'dim' : ''}`} style={{ transitionDelay: `${(Math.floor(i / 8) + i % 8) * 35}ms` }}><small>{String(i + 1).padStart(2, '0')}</small><b>{skill.name.slice(0, 2)}</b><span>{skill.name}</span></button>)}</div><aside className="inspector"><small>STACK INSPECTOR</small><div className="inspector-mark">{selected.name.slice(0, 2)}</div><h3>{selected.name}</h3><p>{selected.family}</p><hr /><p>Included in the technical skills listed on the résumé.</p></aside></div></section>
 
-    <section id="work" className="section"><Tag n="03" label="Selected work" /><h2 className="rv">Things I&apos;ve <em>built.</em></h2><div className="work">{PROJECTS.map((item, index) => <article key={item.id} className={`project ${project === index ? 'open' : ''}`} onMouseEnter={() => setProject(index)}><button className="project-toggle" onClick={() => setProject(index)} aria-label={`Open ${item.title}`}><span>{item.index}</span><b>{item.title}</b><i>+</i></button><div className="project-content"><div><p className="eyebrow">{item.index} / {item.kicker}</p><h3>{item.title}</h3><p>{item.description}</p><ul>{item.features.slice(0, 2).map((x) => <li key={x}>{x}</li>)}</ul><div className="chips">{item.tech.map((x) => <span key={x}>{x}</span>)}</div>{'github' in item && <a className="button dark" href={item.github} target="_blank">View on GitHub ↗</a>}{'live' in item && <a className="button dark" href={item.live} target="_blank">Visit KL Radio ↗</a>}</div><div className={`illustration ${'image' in item && item.image ? 'has-img' : ''}`}>{'image' in item && item.image ? <img src={item.image} alt={`${item.title} preview`} className="project-img" loading="lazy" /> : <><small>ILLUSTRATIVE UI</small><div /><div /><div /></>}</div></div></article>)}</div></section>
+    <section id="work" className="section"><Tag n="03" label="Selected work" /><h2 className="rv">Things I&apos;ve <em>built.</em></h2><div className="work">{PROJECTS.map((item) => <article key={item.id} className="project rv"><div className="project-content"><div><p className="eyebrow">{item.index} / {item.kicker}</p><h3>{item.title}</h3><p>{item.description}</p><ul>{item.features.map((x) => <li key={x}>{x}</li>)}</ul><div className="chips">{item.tech.map((x) => <span key={x}>{x}</span>)}</div><div className="project-actions">{'live' in item && item.live && <a className="button dark" href={item.live} target="_blank" rel="noopener noreferrer">Live Demo ↗</a>}{'github' in item && item.github && <a className="button" href={item.github} target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>}</div></div><div className={`illustration ${'image' in item && item.image ? 'has-img' : ''}`}>{'image' in item && item.image ? <img src={item.image} alt={`${item.title} preview`} className="project-img" loading="lazy" /> : <><small>ILLUSTRATIVE UI</small><div /><div /><div /></>}</div></div></article>)}</div></section>
 
-    <section id="certifications" className="section certs"><Tag n="04" label="Certifications" /><div className="cert-grid"><div><h2 className="rv">Always <em>learning.</em></h2><p>{CERTIFICATIONS.length} certifications</p></div><ol>{CERTIFICATIONS.map((cert, index) => <li className="rv" key={cert}><span>{String(index + 1).padStart(2, '0')}</span><b>{cert}</b><i>↗</i></li>)}</ol></div></section>
+    <section id="certifications" className="section certs"><Tag n="04" label="Certifications" /><div className="cert-grid"><div><h2 className="rv">Always <em>learning.</em></h2><p>{CERTIFICATIONS.length} certifications</p></div><ol>{CERTIFICATIONS.map((cert, index) => <li className={'url' in cert && cert.url ? 'has-link' : ''} key={cert.title}><span>{String(index + 1).padStart(2, '0')}</span><b>{cert.title}</b><i>↗</i>{'url' in cert && cert.url && <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-hitbox" aria-label={`Open ${cert.title} certificate (PDF)`} title={`Open ${cert.title} certificate`} />}</li>)}</ol></div></section>
 
     <section id="experience" className="section"><Tag n="05" label="Path so far" /><h2 className="rv">Learning by <em>doing.</em></h2><div className="timeline">{EXPERIENCE.map((item, index) => <article className="rv" key={item.title}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{item.date}</small><h3>{item.title}</h3><b>{item.place}</b><p>{item.detail}</p></div></article>)}<div className="next">Next — Your team?</div></div></section>
 

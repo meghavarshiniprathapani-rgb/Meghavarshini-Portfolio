@@ -30,7 +30,7 @@ export const aboutData: AboutSection = {
   highlights: [
     { label: "CGPA", value: "8.85", description: "Academic Excellence" },
     { label: "Graduation", value: "2027", description: "B.Tech CSE" },
-    { label: "KL Radio", value: "100+", description: "Concurrent Listeners" },
+    { label: "KL Radio", value: "30+", description: "Concurrent Listeners" },
     { label: "Live Shows", value: "15+", description: "Coordinated" }
   ],
   coreFocus: [
@@ -107,7 +107,7 @@ export const experienceData: Experience[] = [
     organization: "KL Radio",
     period: "Aug 2025 – Present",
     description: [
-      "Supported the development, deployment, and maintenance of a real-time broadcasting platform serving 100+ concurrent listeners with ~2–3 seconds of audio latency.",
+      "Supported the development, deployment, and maintenance of a real-time broadcasting platform serving 30+ concurrent listeners with ~2–3 seconds of audio latency.",
       "Diagnosed and troubleshot audio issues during live shows to keep delivery reliable.",
       "Trained junior interns in audio editing and broadcasting workflows."
     ],
